@@ -1,7 +1,7 @@
 function countDown(num) {
   let timer = setInterval(function () {
     num--;
-    if (num <= 0) {
+    if (num === 0) {
       // stop the timer
       clearInterval(timer);
       console.log("DONE!");
