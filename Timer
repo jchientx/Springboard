@@ -14,12 +14,11 @@ function countDown(num) {
 countDown(4);
 
 function randomGame() {
-  let random;
   let i = 0;
   // The setInterval() method continues calling the function
   // until clearInterval() is called
   let timer = setInterval(function () {
-    random = Math.random();
+    let random = Math.random();
     i++;
     if (random > 0.75) {
       // stop the timer
