@@ -6,24 +6,6 @@ const colorSection = document.querySelector("#colors");
 const removeBtn = document.createElement("button");
 const completeBtn = document.createElement("button");
 
-//const toggleSwitch = document.querySelector('input[type="checkbox"]');
-// localStorage: When the page refreshes, the todos on the page remain there
-/*
-if (localStorage.getItem("darkModeEnabled")) {
-  document.body.className = "dark";
-  toggleSwitch.checked = true;
-}
-toggleSwitch.addEventListener("click", function (e) {
-  const { checked } = toggleSwitch;
-  if (checked) {
-    localStorage.setItem("darkModeEnabled", true);
-  } else {
-    localStorage.removeItem("darkModeEnabled");
-  }
-  document.body.className = checked ? "dark" : "";
-});
-*/
-
 // retrieve from localStorage
 const savedTodos = JSON.parse(localStorage.getItem("todosAll")) || [];
 for (let i = 0; i < savedTodos.length; i++) {
@@ -47,8 +29,7 @@ form.addEventListener("submit", function (e) {
   console.log(input.value);
 
   let newTodo = document.createElement("li");
-  //const removeBtn = document.createElement("button");
-  //const completeBtn = document.createElement("button");
+
   removeBtn.innerText = "Remove";
   completeBtn.innerText = "Completed";
   newTodo.classList.add("todo");
@@ -68,12 +49,7 @@ form.addEventListener("submit", function (e) {
 todoList.addEventListener("click", function (e) {
   console.log(e.target.tagName); //BUTTON
   console.log(e.target.innerText); //Remove / Completed
-  /*
-  if (e.target.tagName === "BUTTON")
-    removeBtn.addEventListener("click", function (e) {
-    e.target.parentElement.remove();
-  });
-  */
+  
   if (e.target.innerText === "Remove") {
     e.target.parentElement.remove();
     //localStorage.removeItem("todos"); => How to link this effect to Remove button?
@@ -84,14 +60,6 @@ todoList.addEventListener("click", function (e) {
     //e.target.innerText = "Undo"; => How to toggle Undo & Completed?
   }
 });
-
-/*const removeButtons = document.querySelectorAll("li button");
-for (let btn of removeButtons) {
-  btn.addEventListener("click", function (e) {
-    e.target.parentElement.remove();
-  });
-}
-*/
 
 // Change background color
 colorSection.addEventListener("click", function (e) {
