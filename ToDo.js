@@ -57,7 +57,11 @@ todoList.addEventListener("click", function (e) {
     e.target.parentElement.classList.toggle("completed");
     e.target.isCompleted = true;
     console.log(e.target.isCompleted); //true
-    //e.target.innerText = "Undo"; => How to toggle Undo & Completed?
+    e.target.innerText = "Undo"; //=> Toggle Undo & Completed
+  } else if (e.target.innerText === "Undo") {
+    e.target.parentElement.classList.remove("completed");
+    e.target.isCompleted = false;
+    e.target.innerText = "Completed";
   }
 });
 
