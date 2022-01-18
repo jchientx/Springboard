@@ -1,0 +1,17 @@
+#todo-list {
+  font-size: 20px;
+  font-family: cursive;
+}
+
+li:hover {
+  background-color: rgba(40, 146, 207, 0.3);
+}
+
+.completed {
+  color: aqua;
+  text-decoration: line-through;
+}
+
+#colors {
+  color: white;
+}
