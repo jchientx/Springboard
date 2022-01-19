@@ -3,8 +3,7 @@ const input = document.querySelector("#todo-item");
 const todoList = document.querySelector("#todo-list");
 const todos = document.querySelector("li");
 const colorSection = document.querySelector("#colors");
-const removeBtn = document.createElement("button");
-const completeBtn = document.createElement("button");
+
 
 // retrieve from localStorage
 const savedTodos = JSON.parse(localStorage.getItem("todosAll")) || [];
@@ -16,6 +15,8 @@ for (let i = 0; i < savedTodos.length; i++) {
   if (newTodo.isCompleted) {
     newTodo.style.textDecoration = "line-through";
   }
+  const removeBtn = document.createElement("button");
+  const completeBtn = document.createElement("button");
   removeBtn.innerText = "Remove";
   newTodo.appendChild(removeBtn);
   completeBtn.innerText = "Completed";
@@ -29,7 +30,8 @@ form.addEventListener("submit", function (e) {
   console.log(input.value);
 
   let newTodo = document.createElement("li");
-
+  const removeBtn = document.createElement("button");
+  const completeBtn = document.createElement("button");
   removeBtn.innerText = "Remove";
   completeBtn.innerText = "Completed";
   newTodo.classList.add("todo");
@@ -62,6 +64,15 @@ todoList.addEventListener("click", function (e) {
     e.target.parentElement.classList.remove("completed");
     e.target.isCompleted = false;
     e.target.innerText = "Completed";
+  }
+  
+  // Failed - how about have dynamic IDs?
+  for (let i = 0; i < savedTodos.length; i++) {
+    if (savedTodos[i].todoItem === e.target.parentElement.innerText) {
+      //Todo 1 !== Todo 1RemoveCompleted --> Failed
+      savedTodos[i].isCompleted = !savedTodos[i].isCompleted;
+      localStorage.setItem("todosAll", JSON.stringify(savedTodos));
+    }
   }
 });
 
