@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+    <link rel="stylesheet" href="ToDo.css" />
+    <!--link rel="stylesheet" href="toggle.css" /-->
+  </head>
+  <body class="dark">
+    <!--input type="checkbox" id="switch" /><label for="switch">Toggle</label-->
+    <section id="colors">
+      <button data-hex="#588c7e">Green</button>
+      <button data-hex="#f2e394">Yellow</button>
+      <button data-hex="#f2ae72">Orange</button>
+      <button data-hex="#d96459">Red</button>
+    </section>
+    <h1>Todo List</h1>
+    <form action="" id="add-todo">
+      <label for="todo-item">Todo Item: </label>
+      <input type="text" id="todo-item" placeholder="Type todo..." autofocus />
+      <button>Add Todo</button>
+    </form>
+    <ul id="todo-list"></ul>
+    <script src="ToDo.js"></script>
+  </body>
+</html>
