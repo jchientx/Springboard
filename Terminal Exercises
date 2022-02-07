@@ -1,0 +1,22 @@
+make a directory: mkdir first
+change directory: cd first
+create a file: touch person.txt
+change the name: mv person.txt another.txt
+make a copy of the file: cp another.txt copy.txt
+remove the file: rm copy.txt
+make a copy of the folder: cp -r first second
+delete the folder: rm -rf second
+ 
+man command will open a manual on the command in terminal; Scroll: hit Enter; Get out: hit q
+-l: use a long listing format to give us more information about each file; -a: list all files (including hidden files and folders)
+jump between words: Option/Alt + left/right 
+move to end of line: Command/Control + e
+move to beginning of line: Command/Control + a
+use Option/Alt + left/right between the words and then delete the word where your cursor is by using: Command/Control + w
+A terminal refers to a wrapper program which runs a shell. The shell is the program which actually processes commands and returns output.
+Absolute Path: specify a path starting from the root directory / (i.e. cd /Users/jc/Desktop)
+Relative Path: relative to where I am currently (i.e. cd Desktop)
+Flags can change and even enhance commands and are added using a - after the command. 
+For example, ls -a: list all files; ls -l: give us more information about each file; ls -la: show all files and more detailed information about each one 
+If there is anything inside the folder, you will have to use rm -rf to remove the folder. 
+-f, --force, ignore nonexistent files and arguments;  -r, -R, --recursive, remove directories and their contents recursively
