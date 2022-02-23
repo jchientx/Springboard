@@ -23,3 +23,25 @@ function appendTd(tr, value) {
 
   tr.append(newTd);
 }
+
+// append delete button and click for deleting the table row it belongs to
+function appendDeleteBtn(tr, serverOrPayment) {
+  let newBtn = document.createElement("td");
+  newBtn.className = "deleteBtn";
+  newBtn.innerText = "X";
+
+  newBtn.addEventListener("click", removeTr);
+
+  tr.append(newBtn);
+}
+
+// remove the parent ‘tr’ from the dom
+function removeTr(event) {
+  // access the parent row of the ‘td’ from the click event
+  let removeTarget = event.target.closest("tr");
+
+  delete allServers[removeTarget.id]; // use delete for allServer objects
+
+  removeTarget.parentNode.removeChild(removeTarget); //.parentElement also works
+  updateServerTable();
+}
