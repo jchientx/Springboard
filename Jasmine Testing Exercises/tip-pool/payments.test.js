@@ -9,13 +9,13 @@ describe("Servers test (with setup and tear-down)", function () {
 
     expect(Object.keys(allPayments).length).toEqual(1);
     expect(allPayments["payment1"].billAmt).toEqual("150");
-    expect(allPayments["payment1"].tipAmt).toEqual("30");
-    expect(allPayments["payment1"].tipPercent).toEqual(20); //Why not "20"?
+    expect(allPayments["payment1"].tipAmt).toEqual("30"); //=> user input will always be string type
+    expect(allPayments["payment1"].tipPercent).toEqual(20); //Why not "20"? => Math.round return number type
   });
 
   it("should not add a new payment with empty value to allPayments on submitPaymentInfo()", function () {
     billAmtInput.value = "";
-    // tipAmtInput.value = ""
+    // tipAmtInput.value = "" => no conditional, so each one works
     submitPaymentInfo();
 
     expect(Object.keys(allPayments).length).toEqual(0);
@@ -26,7 +26,7 @@ describe("Servers test (with setup and tear-down)", function () {
     let expected = {
       billAmt: "150",
       tipAmt: "30",
-      tipPercent: 20, //Why not "20"?
+      tipPercent: 20, //Why not "20"? => calculateTipPercent(): Math.round returns number
     };
 
     expect(expected).toEqual(curPayment);
@@ -42,19 +42,20 @@ describe("Servers test (with setup and tear-down)", function () {
 
   it("should update #paymentTable on appendPaymentTable(curPayment)", function () {
     let curPayment = createCurPayment();
-    allPayments["payment1"] = curPayment; //?
+    allPayments["payment2"] = curPayment; //? => payment1, payment2 all works
     appendPaymentTable(curPayment);
 
     let paymentTable = document.querySelectorAll("#paymentTable tbody tr td");
-    expect(paymentTable.length).toEqual(3);
+    expect(paymentTable.length).toEqual(4);
     expect(paymentTable[0].innerText).toEqual("$150");
     expect(paymentTable[1].innerText).toEqual("$30");
     expect(paymentTable[2].innerText).toEqual("20%");
+    expect(paymentTable[3].innerText).toEqual("X");
   });
 
   it("should update #summaryTable on updateSummary()", function () {
     let curPayment = createCurPayment();
-    allPayments["payment1"] = curPayment; //?
+    allPayments["payment1"] = curPayment;
     updateSummary();
 
     let summaryTable = document.querySelectorAll("#summaryTable tbody tr td");
