@@ -24,9 +24,10 @@ describe("Servers test (with setup and tear-down)", function () {
 
     let currentServer = document.querySelectorAll("#serverTable tbody tr td");
 
-    expect(currentServer.length).toEqual(2);
+    expect(currentServer.length).toEqual(3);
     expect(currentServer[0].innerText).toEqual("Alice");
     expect(currentServer[1].innerText).toEqual("$0.00");
+    expect(currentServer[2].innerText).toEqual("X");
   });
 
   afterEach(function () {
