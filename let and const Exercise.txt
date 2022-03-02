@@ -1,0 +1,13 @@
+What is the difference between var and let?
+var can be redeclared and reassigned; let can be reassigned but can't be redeclared 
+var is function-scoped while let is block-scoped
+
+What is the difference between var and const?
+var can be redeclared and reassigned; const can't be reassigned or redeclared
+var is function scope while const is block-scoped
+
+What is the difference between let and const?
+let can be reassigned while const can't be reassigned
+
+What is hoisting?
+var will hoist to the top of the scope it is defined in, so you can use the variable name before it is declared and it will be an undefined value. Function declarations also can be hoisted and be called before it is defined
