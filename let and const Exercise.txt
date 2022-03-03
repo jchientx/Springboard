@@ -1,3 +1,6 @@
+const PI = 3.14;
+PI = 42;
+
 What is the difference between var and let?
 var can be redeclared and reassigned; let can be reassigned but can't be redeclared 
 var is function-scoped while let is block-scoped
