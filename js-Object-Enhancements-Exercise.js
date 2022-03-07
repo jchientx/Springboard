@@ -26,6 +26,7 @@ const instructor = {
     return this.firstName + "says bye!";
   },
 };
+
 // createAnimal function
 function createAnimal(species, verb, noise) {
   return {
