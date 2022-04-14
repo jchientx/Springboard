@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Giphy Party!</title>
+    <link
+      rel="stylesheet"
+      href="https://bootswatch.com/4/slate/bootstrap.css"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+      <h1 class="text-center">GIPHY PARTY</h1>
+      <form class="form-inline justify-content-center">
+        <div class="row">
+          <div class="col-auto">
+            <input
+              type="text"
+              id="search"
+              class="form-control"
+              placeholder="Enter a search term"
+            />
+          </div>
+          <div class="col-auto">
+            <button
+              type="submit"
+              id="search"
+              class="btn btn-primary form-control"
+            >
+              Search Giphy!
+            </button>
+          </div>
+          <div class="col-auto">
+            <button id="remove" class="btn btn-danger form-control">
+              Remove All
+            </button>
+          </div>
+        </div>
+      </form>
+      <div id="gif-area" class="row"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
