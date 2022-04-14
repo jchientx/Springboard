@@ -1,3 +1,5 @@
+// console.log("Let's get this party started!");
+
 const $gifArea = $("#gif-area");
 const $searchWord = $("#search");
 
@@ -5,7 +7,10 @@ function addGif(result) {
   let resultNums = result.data.length;
   if (resultNums) {
     let randomId = Math.floor(Math.random() * resultNums);
-    let $newDiv = $("<div>");
+    let $newDiv = $("<div>", {
+      class: "my-3 mx-3",
+      style: "width: 30%;",
+    });
     let $newGif = $("<img>", {
       src: result.data[randomId].images.original.url,
       class: "w-100",
