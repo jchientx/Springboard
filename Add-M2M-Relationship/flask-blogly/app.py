@@ -1,6 +1,6 @@
 """Blogly application."""
 
-from flask import Flask, request, redirect, render_template, session, flash
+from flask import Flask, request, redirect, render_template
 from flask_debugtoolbar import DebugToolbarExtension
 from models import db, connect_db, User, Post, Tag
 
@@ -107,7 +107,8 @@ def create_posts(user_id):
     
     user = User.query.get_or_404(user_id)
 
-    tag_id_list = [int(id) for id in request.form.getlist("tags")] # What will request.form.getlist("tags") return?
+    tag_id_list = [int(id) for id in request.form.getlist("tags")] 
+    # request.form.getlist("tags") return? => a list of "tags" from tags=tags in render_template('posts/create.html', user=user, tags=tags) => tags = Tag.query.all()
     tags = Tag.query.filter(Tag.id.in_(tag_id_list)).all() # in_()
     user.title = request.form['title']
     user.content = request.form['content']
@@ -144,7 +145,7 @@ def edit_post(post_id):
     post.content = request.form['content']
 
     tag_id_list = [int(id) for id in request.form.getlist("tags")]
-    post.tags = Tag.query.filter(Tag.id.in_(tag_id_list)).all() # Why post.tags here?
+    post.tags = Tag.query.filter(Tag.id.in_(tag_id_list)).all() # Why post.tags here? => Can be post.xxx; post = Post.query.get_or_404(post_id)
 
     db.session.add(post)
     db.session.commit()
@@ -175,7 +176,7 @@ def list_tags():
 @app.route('/tags/new', methods=["GET"])
 def create_tag_form():
     """Show a form to create a new tag"""
-    posts = Post.query.all()  # Why we need this?
+    posts = Post.query.all()  
 
     return render_template('tags/create.html', posts=posts)
 
@@ -218,7 +219,7 @@ def edit_tag(tag_id):
     tag.name = request.form['name']
 
     post_id_list = [int(id) for id in request.form.getlist("posts")]
-    tag.posts = Post.query.filter(Post.id.in_(post_id_list)).all() # Why tag.posts here?
+    tag.posts = Post.query.filter(Post.id.in_(post_id_list)).all() # Why tag.posts here? => Can be tag.xxx; tag = Tag.query.get_or_404(tag_id)
 
     db.session.add(tag)
     db.session.commit()
