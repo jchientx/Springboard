@@ -35,14 +35,14 @@ class Post(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     # tags = db.relationship('Tag', secondary='posts_tags', backref='posts')
 
-class PostTag(db.Model):
+class PostTag(db.Model): # Didn't use this Model! Can be removed (and remove secondary) in this case
     """Joins together Post and Tag. Show the tag on a post."""
 
     __tablename__ = "posts_tags"
 
     post_id = db.Column(db.Integer, db.ForeignKey('posts.id'), primary_key=True)
     tag_id = db.Column(db.Integer, db.ForeignKey('tags.id'), primary_key=True)
-    
+
 class Tag(db.Model):
     """Tag"""
 
@@ -51,7 +51,7 @@ class Tag(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.Text, nullable=False, unique=True)
 
-    posts = db.relationship('Post', secondary='posts_tags', backref='tags')
+    posts = db.relationship('Post', secondary='posts_tags', backref='tags') # This line relates table posts & tags
     #                     Class_want_to_relate, joined_table, table_in_this_Class
 
 
